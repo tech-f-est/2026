@@ -1,4 +1,4 @@
-import { style, globalStyle } from "@vanilla-extract/css";
+import { style } from "@vanilla-extract/css";
 import { theme } from "../theme.css";
 import { card } from "../utils.css";
 
