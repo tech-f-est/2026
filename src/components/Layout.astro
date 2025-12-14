@@ -1,0 +1,30 @@
+---
+interface Props {
+  pageClass?: string;
+  title?: string;
+}
+
+import { themeClass } from "../theme.css";
+import * as style from "./Layout.css";
+
+import Nav from "../components/Nav.astro";
+
+const { pageClass = "", title = "Tech-f-est" } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title} - Tech&nbsp;F'Est 2026</title>
+  </head>
+  <body class:list={[themeClass, style.page]}>
+    <Nav />
+
+    <main class:list={[style.main, pageClass]}>
+      <slot />
+    </main>
+  </body>
+</html>

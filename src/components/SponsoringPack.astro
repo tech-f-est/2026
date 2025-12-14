@@ -1,0 +1,66 @@
+---
+import * as style from "./SponsoringPack.css.ts";
+import type { SponsorPack } from "../data/sponsoring-data";
+
+interface Props extends SponsorPack {}
+
+const subject = (name: string) => `Sponsoring Tech-f-est 2025 - Pack "${name}"`;
+const body = (name: string) =>
+  [
+    "Bonjour,",
+    "",
+    `Je vous écris pour souscrire au pack de sponsoring "${name}". Pouvez-vous me fournir votre RIB que je puisse effecteur le virement ?`,
+  ].join("%0D%0A");
+const { id, name, price, places, messages, tables, logo, talk } = Astro.props;
+
+// Formater le prix avec espace comme séparateur de milliers et € comme devise
+function formatPrice(price: number): string {
+  return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " €";
+}
+
+// Déterminer si un badge devrait être affiché
+const showRecommendedBadge = id === "bergamote";
+const showPremiumBadge = id === "stanislas";
+---
+
+<div class:list={[style.pack, style.packVariants[id]]}>
+  {
+    showRecommendedBadge && (
+      <span class={style.recommendedBadge}>Recommandé</span>
+    )
+  }
+  {showPremiumBadge && <span class={style.premiumBadge}>Premium</span>}
+
+  <h2 class={style.packTitle}>{name}</h2>
+  <div class={style.price}>{formatPrice(price)}</div>
+
+  <ul class={style.features}>
+    <li class={style.feature}>
+      <span class={style.featureLabel}>Places offertes</span>
+      <span class={style.featureValue}>{places}</span>
+    </li>
+    <li class={style.feature}>
+      <span class={style.featureLabel}>Messages sur nos réseaux</span>
+      <span class={style.featureValue}>{messages}</span>
+    </li>
+    <li class={style.feature}>
+      <span class={style.featureLabel}>Tables</span>
+      <span class={style.featureValue}>{tables}</span>
+    </li>
+    <li class={style.feature}>
+      <span class={style.featureLabel}>Logo sur le site</span>
+      <span class={style.featureValue}>{logo ? "Inclus" : "Non inclus"}</span>
+    </li>
+    <li class={style.feature}>
+      <span class={style.featureLabel}>Intro Sponsor</span>
+      <span class={style.featureValue}>{talk ? "Inclus" : "Non inclus"}</span>
+    </li>
+  </ul>
+
+  <a
+    href={`mailto:sponso@tech-fest.dev?subject=${subject(name)}&body=${body(name)}`}
+    class={style.contact}
+  >
+    Devenir sponsor {name}
+  </a>
+</div>

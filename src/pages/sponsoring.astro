@@ -1,0 +1,28 @@
+---
+import * as style from "./sponsoring.css";
+import Layout from "../components/Layout.astro";
+import SponsoringPack from "../components/SponsoringPack.astro";
+import { getStandardPacks } from "../data/sponsoring-data";
+
+const sortedStandardPacksByPriceAsc = getStandardPacks().sort(
+  (a, b) => a.price - b.price
+);
+---
+
+<Layout title="Sponsoring">
+  <h1 class={style.pageTitle}>Nos offres de sponsoring</h1>
+
+  <section class={style.packs}>
+    {sortedStandardPacksByPriceAsc.map((pack) => <SponsoringPack {...pack} />)}
+  </section>
+
+  <section class={style.contactSection}>
+    <h2 class={style.contactTitle}>Intéressé pour devenir sponsor ?</h2>
+    <p class={style.contactText}>
+      Contactez-nous à <a
+        href="mailto:sponsors@tech-f-est.fr"
+        class={style.contactLink}>sponsors@tech-f-est.fr</a
+      > pour plus d'informations.
+    </p>
+  </section>
+</Layout>

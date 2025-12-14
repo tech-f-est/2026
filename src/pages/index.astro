@@ -1,0 +1,36 @@
+---
+import * as style from "./index.css";
+
+import Layout from "../components/Layout.astro";
+import Stanislas from "../components/Stanislas.astro";
+---
+
+<Layout pageClass={style.page}>
+  <section class={style.section}>
+    <div>
+      <h1 class={style.title}>Tech&nbsp;F'Est</h1>
+      <h2>Une journée juste à parler tech</h2>
+    </div>
+    <div class={style.details}>
+      <div class={style.pill}>12 Juin 2026</div>
+      <div class={style.pill}>IUT Charlemagne, Nancy</div>
+    </div>
+  </section>
+
+  <section class={style.section}>
+    <p class={style.description}>
+      Tech&nbsp;F'Est c'est la journée de conférence pour tous les développeurs
+      et développeuses du Grand&nbsp;Est ! On se retrouve pour échanger,
+      partager nos expériences et découvrir des speakers de la région (et même
+      d'un peu plus loin !)
+    </p>
+    <p class={style.description}>
+      C'est l'occasion idéale pour rencontrer du monde et se connecter avec la
+      communauté tech locale
+    </p>
+  </section>
+
+  <section class={style.section}>
+    <Stanislas />
+  </section>
+</Layout>
