@@ -18,8 +18,9 @@ export const nav = style({
 
   "@media": {
     "(max-width: 768px)": {
-      alignItems: "flex-start",
       zIndex: 1,
+      // We reduce the bottom padding, because there is a bottom border on the elements that's only visible on hover
+      padding: `${theme.spacing.small} ${theme.spacing.small} calc(${theme.spacing.small} - 6px) ${theme.spacing.medium}`,
     },
   },
 });
@@ -53,10 +54,12 @@ export const links = style({
 
   "@media": {
     "(max-width: 768px)": {
-      position: "absolute",
+      position: "fixed",
       overflow: "hidden",
       width: "100vw",
       height: "100vh",
+      top: 0,
+      left: 0,
 
       transition: "background .2s, content-visibility .2s allow-discrete",
       background: "transparent",
@@ -109,6 +112,8 @@ export const link = style({
     "(max-width: 768px)": {
       transform: `translateX(300px)`,
 
+      fontSize: 24,
+
       transition: theme.transition,
 
       selectors: {
@@ -128,7 +133,7 @@ export const burger = style({
       justifyContent: "center",
       alignItems: "center",
       // Hand crafted padding so the button takes is as large as possible without pushing the nav's height
-      padding: 18,
+      padding: "18px 18px 24px 18px",
     },
   },
 });
