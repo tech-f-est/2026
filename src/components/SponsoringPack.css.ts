@@ -113,9 +113,9 @@ export const packBadge = style({
 });
 
 export const packVariants = styleVariants({
-  jaumont: {},
-  bergamote: {},
-  stanislas: {},
+  bronze: {},
+  argent: {},
+  or: {},
   venue: {},
 });
 
