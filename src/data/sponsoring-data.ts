@@ -1,5 +1,5 @@
 export interface SponsorPack {
-  id: "jaumont" | "bergamote" | "stanislas" | "venue";
+  id: "bronze" | "argent" | "or" | "venue";
   name: string;
   price: number;
   places: number;
