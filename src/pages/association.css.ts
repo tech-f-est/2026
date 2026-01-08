@@ -169,3 +169,10 @@ export const ctaButton = style({
   borderRadius: 99,
   textDecoration: "none",
 });
+
+export const team = style([
+  card(),
+  {
+    padding: 0,
+  },
+]);

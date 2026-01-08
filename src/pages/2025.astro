@@ -1,0 +1,36 @@
+---
+import Layout from "../components/Layout.astro";
+import * as style from "./2025.css.ts";
+---
+
+<Layout title="Édition 2025">
+  <p class={style.description}>
+    Le vendredi 13 juin 2025, la première édition du Tech F'Est a rassemblé la
+    communauté des développeuses et développeurs du Grand Est à l'IUT
+    Charlemagne de Nancy. Une journée de conférences techniques variées
+    (backend, frontend, DevOps, architecture, sécurité, tests) où speakers
+    locaux et nationaux ont partagé leurs retours d'expérience authentiques. Un
+    événement qui a posé les fondations d'un rendez-vous annuel pour la tech
+    régionale.
+  </p>
+
+  <iframe
+    class={style.video}
+    src="https://www.youtube.com/embed/LlQF4r4n03Q?si=jwN_86-a8onQhP_4"
+    title="YouTube video player"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen></iframe>
+
+  <div class={style.pictures}>
+    <img class={style.picture} src="/img/lana.jpg" />
+    <img class={style.picture} src="/img/arnaud.jpg" />
+    <img class={style.picture} src="/img/food.jpg" />
+    <img class={style.picture} src="/img/crowd.jpg" />
+  </div>
+
+  <a href="https://2025.tech-fest.dev" class={style.link}
+    >Site de l'édition 2025 →</a
+  >
+</Layout>
